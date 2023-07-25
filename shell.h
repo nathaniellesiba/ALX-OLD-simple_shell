@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <sys/wait.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 
 int betty(int num1, int add1);
