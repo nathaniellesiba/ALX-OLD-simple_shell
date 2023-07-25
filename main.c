@@ -10,5 +10,7 @@
 
 int betty(int num1, int add1)
 {
-return(num1 + add1);
+int sum;
+sum = num1 + add1;
+return(sum);
 }
