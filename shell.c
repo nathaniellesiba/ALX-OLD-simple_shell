@@ -13,6 +13,7 @@ int main(int ac, char **av, char **env)
 {
 
 int b;
+int d;
 int t;
 
 b = 2;
