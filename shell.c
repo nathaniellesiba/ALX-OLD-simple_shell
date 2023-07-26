@@ -11,15 +11,11 @@
 
 int main(int ac, char **av, char **env)
 {
+int b = 2;
+int t = 1;
+int d = b - t;
 
-int b;
-int d;
-int t;
-
-b = 2;
-t = 1;
-d = b - t;
-if (ac == d);
+if (ac == d)
 prompt(av, env);
 return (0);
 }
