@@ -17,6 +17,8 @@ void prompt(char **av, char **env);
 int main(int ac, char **av, char **env);
 int exit(info_t *info);
 int main(int ac, char **av);
+void execute_command(char* command);
+int main(void);
 
 
 #endif
