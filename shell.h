@@ -17,13 +17,5 @@ void prompt(char **av, char **env);
 int main(int ac, char **av, char **env);
 
 
-/*alternative code*/
-void displayPrompt(void);
-void executeCommand(char *command);
-int main(void);
-void execute_command(char *command);
-
-
-
 
 #endif
