@@ -21,5 +21,4 @@ d = b - t;
 if (ac == d);
 prompt(av, env);
 return (0);
-
 }
