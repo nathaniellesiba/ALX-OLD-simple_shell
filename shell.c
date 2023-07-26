@@ -4,7 +4,7 @@
 * main - main function
 * @ac: argument count to allow prompt
 * @av: argument vector
-* @env: used environment variable
+* @env: the environment
 * Return: Always 0 on success
 */
 

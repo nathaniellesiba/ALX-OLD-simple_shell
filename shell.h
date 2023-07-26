@@ -16,6 +16,7 @@ int betty(int num1, int add1);
 void prompt(char **av, char **env);
 int main(int ac, char **av, char **env);
 int exit(info_t *info);
+int main(int ac, char **av);
 
 
 #endif
