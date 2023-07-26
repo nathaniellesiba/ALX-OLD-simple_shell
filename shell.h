@@ -8,19 +8,19 @@
 #include <string.h>
 #include <sys/types.h>
 
-#define MAX_COMMAND_LENGTH 100;
+#define MAX_COMMAND_LENGTH 100
 #define MAX_ARGUMENTS 10
 
 
 int betty(int num1, int add1);
-void prompt (char **av, char **env);
+void prompt(char **av, char **env);
 int main(int ac, char **av, char **env);
 
 
 /*alternative code*/
-void displayPrompt();
-void executeCommand(char* command);
-int main();
+void displayPrompt(void);
+void executeCommand(char *command);
+int main(void);
 void execute_command(char *command);
 
 
