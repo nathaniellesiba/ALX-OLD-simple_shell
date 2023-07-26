@@ -12,9 +12,9 @@
 
 void prompt (char **av, char **env)
 {
-
+int MAX_C = 10
 char *string = NULL;
-int i, status;
+int i, t, status;
 size_t n = 0;
 ssize_t num_char;
 char *argv[MAX_C];
@@ -22,7 +22,7 @@ pid_t child_pid;
 
 while (1)
 {
-if(isatty(STDIN_FILENO));
+if(isatty(STDIN_FILENO))
 printf("cisfun$ ");
 
 num_char = getline(&string, &n, stdin);
@@ -40,9 +40,9 @@ string[i] = 0;
 i++;
 
 }
-t = 0
+t = 0;
 argv[t] = strtok(string, " ");
-while (arg[t])
+while (argv[t])
 
 t++;
 argv[t] = strtok(NULL, " ");
