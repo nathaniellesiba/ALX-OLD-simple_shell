@@ -2,16 +2,18 @@
 #include <stdio.h>
 
 /**
-* betty - proud betty numbers
-* @num1: integer 1 number
-* @add1: integer 1 added
+* main - proud betty
 *
-* Return: the results of betty numbers
+* Return: Always 0
 */
 
-int betty(int num1, int add1)
+int main(void)
 {
-int sum;
-sum = num1 + add1;
-return (sum);
+int a;
+int b;
+
+b = 98;
+a = 1 + 2 + 3 * 4 - 1;
+b = 23 + add(32, a, a + b);
+return (0);
 }

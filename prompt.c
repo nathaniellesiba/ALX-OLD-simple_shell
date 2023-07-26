@@ -7,12 +7,12 @@
 * prompt - prompt to display
 * @av: used argument vector
 * @env: environment variable
-* 
+*
 */
 
-void prompt (char **av, char **env)
+void prompt(char **av, char **env)
 {
-int MAX_C = 10
+int MAX_C = 10;
 char *string = NULL;
 int i, t, status;
 size_t n = 0;
@@ -22,14 +22,13 @@ pid_t child_pid;
 
 while (1)
 {
-if(isatty(STDIN_FILENO))
+if (isatty(STDIN_FILENO))
 printf("cisfun$ ");
 
 num_char = getline(&string, &n, stdin);
 if (num_char == -1)
-
 {
-	free(string);
+free(string);
 exit(EXIT_FAILURE);
 }
 i = 0;
@@ -59,8 +58,8 @@ if (child_pid == 0)
 {
 
 if (execve(argv[0], argv, env) == -1)
-	
-printf("%s: No such file or directory\n", av[0]);
+
+printf("%s: No such file\n", av[0]);
 }
 else
 wait(&status);
