@@ -1,6 +1,8 @@
 #include "shell.h"
 #include <sys/wait.h>
 
+#define Max_C 10
+
 /**
 * prompt - prompt to display
 * @av: used argument vector
@@ -15,7 +17,7 @@ char *string = NULL;
 int i, status;
 size_t n = 0;
 ssize_t num_char;
-char *argv[] = {NULL, NULL};
+char *argv[MAX_C];
 pid_t child_pid;
 
 while (1)
@@ -38,7 +40,13 @@ string[i] = 0;
 i++;
 
 }
-argv[0] = string
+t = 0
+argv[t] = strtok(string, " ");
+while (arg[t])
+
+t++;
+argv[t] = strtok(NULL, " ");
+
 child_pid = fork();
 if (child_pid == -1)
 {
