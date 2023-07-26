@@ -1,27 +1,35 @@
 #include "shell.h"
-#include <unistd.h>
-
-#define MAX_COMMAND 100
 
 /**
-* main: executing exit command
-* return: always 0
+* exit - exits the shell
+* @info: argument structure
+* constant function prototype.
+* Return: based on status
+* (0) if info.argv[0] != "exit"
 */
-int main(void)
+int exit(info_t *info)
 {
-char command[MAX_COMMAND];
-while (1)
-{
-printf("Shell> ");
-fgets(command, MAX_COMMAND, stdin);
-command[strcspn(command, "\n")] = '\0';
-if (strcmp(command, "exit") == 0)
-{
-printf("Exiting the shell...\n");
-break;
-}
-system(command);
-}
+int t, j, i;
+int res;
 
-return (0);
+i = 1;
+j = 2;
+res = _erratoi
+
+if (info->argv[1])
+{
+t = res(info->argv[i]);
+if (t == -1)
+{
+info->status = j;
+print_error(info, "Illegal number: ");
+_eputs(info->argv[i]);
+_eputchar('\n');
+return (1);
+}
+info->err_num = res(info->argv[i]);
+return (-2);
+}
+info->err_num = -1;
+return (-2);
 }
