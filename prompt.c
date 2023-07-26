@@ -20,6 +20,7 @@ pid_t child_pid;
 
 while (1)
 {
+if(isatty(STDIN_FILENO));
 printf("cisfun$ ");
 
 num_char = getline(&string, &n, stdin);
