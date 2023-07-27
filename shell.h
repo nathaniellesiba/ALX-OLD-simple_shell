@@ -7,6 +7,9 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/types.h>
+#include <stdbool.h>
+#include <ctype.h>
+
 
 #define MAX_COMMAND_LENGTH 100
 #define MAX_ARGUMENTS 10
@@ -31,6 +34,13 @@ void _eputchar(char c);
 void _eputs(char *str);
 void _putchar(char c);
 void _puts(char *str);
+
+
+/*interactive shell*/
+int interactive(info_t *info);
+bool is_delim(char c, char *delim);
+int _isalpha(int c);
+int conv(const char *s);
 
 
 
