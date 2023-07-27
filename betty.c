@@ -1,5 +1,5 @@
 #include "shell.h"
-#include <stdio.h>
+
 
 /**
 * main - proud betty
@@ -11,9 +11,11 @@ int main(void)
 {
 int a;
 int b;
+int c;
 
-b = 98;
-a = 1 + 2 + 3 * 4 - 1;
-b = 23 + add(32, a, a + b);
+i = 2;
+j = 4;
+res = add(i, j);
+printf("%d\n", res);
 return (0);
 }
