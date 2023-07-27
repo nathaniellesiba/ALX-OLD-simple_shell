@@ -41,6 +41,11 @@ bool is_delim(char c, char *delim);
 int _isalpha(int c);
 int conv(const char *s);
 
+/*builtin_cddir*/
+int myexit(info_t *info);
+int _mycd(info_t *info);
+int _myhelp(info_t *info);
+
 
 
 #endif
