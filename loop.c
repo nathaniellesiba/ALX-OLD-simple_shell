@@ -52,14 +52,14 @@ int builtincmd(info_t *info)
 {
 int i, built_in_ret = -1;
 builtin_table builtintbl[] = {
-{"exit", _myexit},
-{"env", _myenv},
+{"exit", exit},
+{"env", env},
 {"help", _myhelp},
-{"history", _myhistory},
-{"setenv", _mysetenv},
-{"unsetenv", _myunsetenv},
-{"cd", cddir},
-{"alias", _myalias},
+{"hstry", hstry},
+{"setenv", setenv},
+{"unsetenv", unsetenv},
+{"cddir", cddir},
+{"alias", alias},
 {NULL, NULL}
 };
 
