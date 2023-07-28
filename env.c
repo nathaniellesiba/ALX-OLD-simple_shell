@@ -1,23 +1,22 @@
 #include "shell.h"
 
 /**
-* env - display current environment
-* getenv - get value of environment variable
-* @name: environment variable name
-* setenv - env initializer and modifyr
-* @info: char argument
-* unsetenv - env remover variable
-* envlist - populates linked list
-* Return: Always 0 on success
+* print_env - display current env
+* @info: char arguments
+* get_env - get environment
+* set_env - set env
+* unset_env - unset environment
+* populate_env_list - input arguments
+* return: always 0 on success
 */
-int env(info_t *info)
+
+int print_env(info_t *info)
 {
 print_list_str(info->env);
 return (0);
 }
 
-
-char *getenv(info_t *info, const char *name)
+char *get_env(info_t *info, const char *name)
 {
 list_t *node = info->env;
 char *p;
@@ -26,18 +25,17 @@ while (node)
 {
 p = starts_with(node->str, name);
 if (p && *p)
-return (p);
+return p;
 node = node->next;
 }
 return (NULL);
 }
 
-
-int setenv(info_t *info)
+int set_env(info_t *info)
 {
 if (info->argc != 3)
 {
-_eputs("Incorrect number of arguements\n");
+_eputs("Incorrect number of arguments\n");
 return (1);
 }
 if (_setenv(info, info->argv[1], info->argv[2]))
@@ -45,14 +43,13 @@ return (0);
 return (1);
 }
 
-
-int unsetenv(info_t *info)
+int unset_env(info_t *info)
 {
 int i;
 
 if (info->argc == 1)
 {
-_eputs("Too few arguements.\n");
+_eputs("Too few arguments.\n");
 return (1);
 }
 for (i = 1; i <= info->argc; i++)
@@ -61,8 +58,7 @@ _unsetenv(info, info->argv[i]);
 return (0);
 }
 
-
-int envlist(info_t *info)
+int populate_env_list(info_t *info)
 {
 list_t *node = NULL;
 size_t i;

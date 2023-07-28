@@ -1,11 +1,12 @@
 #include "shell.h"
 
 /**
-* hsh - main shell loop
-* @info: char arguments
-* @av: argument vector *
-* Return: always 0 on success
+*hsh - main shell loop
+*@info: the parameter & return info struct
+*@av: the argument vector from main()
+*Return: 0 on success, 1 on error, or error code
 */
+
 int hsh(info_t *info, char **av)
 {
 ssize_t r = 0;
@@ -42,24 +43,28 @@ exit(info->err_num);
 return (builtin_ret);
 }
 
+
 /**
-* builtincmd - finds builtin cmd
-* @info: char arguments
-* Return: always 0 on success
+*find_builtin - finds a builtin comman
+*@info: the parameter & return info struct
+*Return: -1 if builtin not found,
+*0 if builtin executed successfully,
+*1 if builtin found but not successful,
+*2 if builtin signals exit()
 */
 
-int builtincmd(info_t *info)
+int find_builtin(info_t *info)
 {
 int i, built_in_ret = -1;
 builtin_table builtintbl[] = {
-{"exit", exit},
-{"env", env},
+{"exit", _myexit},
+{"env", _myenv},
 {"help", _myhelp},
-{"hstry", hstry},
-{"setenv", setenv},
-{"unsetenv", unsetenv},
-{"cddir", cddir},
-{"alias", alias},
+{"history", _myhistory},
+{"setenv", _mysetenv},
+{"unsetenv", _myunsetenv},
+{"cd", _mycd},
+{"alias", _myalias},
 {NULL, NULL}
 };
 
@@ -73,14 +78,14 @@ break;
 return (built_in_ret);
 }
 
+
 /**
-* cmdpath - finding cmd in PATH
-* forkcmd - an exec thread to run cmd
-* @info: char arguments
-* Return: void
+*find_cmd - finds a command in PATH
+*@info: the parameter & return info struct
+*Return: void
 */
 
-void cmdpath(info_t *info)
+void find_cmd(info_t *info)
 {
 char *path = NULL;
 int i, k;
@@ -117,15 +122,19 @@ print_error(info, "not found\n");
 }
 
 
+/**
+*fork_cmd - forks a an exec thread to run cmd
+*@info: the parameter & return info struct
+*Return: void
+*/
 
-void forkcmd(info_t *info)
+void fork_cmd(info_t *info)
 {
 pid_t child_pid;
 
 child_pid = fork();
 if (child_pid == -1)
 {
-/* TODO: PUT ERROR FUNCTION */
 perror("Error:");
 return;
 }
@@ -138,7 +147,6 @@ if (errno == EACCES)
 exit(126);
 exit(1);
 }
-/* TODO: PUT ERROR FUNCTION */
 }
 else
 {
@@ -151,4 +159,5 @@ print_error(info, "Permission denied\n");
 }
 }
 }
+
 
